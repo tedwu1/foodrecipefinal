@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ recipe.title }}</h1>
+<p><strong>Description:</strong> {{ recipe.description }}</p>
+<p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+<p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+
+<form method="POST" action="{{ url_for('main.delete_recipe', recipe_id=recipe.id) }}">
+    <button type="submit">Delete Recipe</button>
+</form>
+
+<a href="{{ url_for('main.home') }}">Back to Recipes</a>
+{% endblock %}
