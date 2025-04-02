@@ -3,10 +3,13 @@
 {% block content %}
 <h1>{{ recipe.title }}</h1>
 <p><strong>Description:</strong> {{ recipe.description }}</p>
-<p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
-<p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+<h3>Ingredients:</h3>
+<pre>{{ recipe.ingredients }}</pre>
+<h3>Instructions:</h3>
+<pre>{{ recipe.instructions }}</pre>
 
 <form method="POST" action="{{ url_for('main.delete_recipe', recipe_id=recipe.id) }}">
+    {{ csrf_token() }}
     <button type="submit">Delete Recipe</button>
 </form>
 
